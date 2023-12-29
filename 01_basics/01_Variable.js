@@ -1,6 +1,7 @@
-const accountId = 134232
-let accountEmail = "himadridas@gmail.com"
-var accountPassword = "12345"
+const accountId = 134232 // cannot be changed
+let accountEmail = "himadridas@gmail.com" // can be changed
+var accountPassword = "12345" // can be changed
+
 accountCity = "Dhanbad" /* it's called "implicit global variable declaration", it works exactly like "var" => i.e hoisted globally out of block and functional scope */
 let accountState
 
