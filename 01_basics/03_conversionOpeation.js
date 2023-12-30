@@ -91,7 +91,7 @@ let str3 = str1 + str2
 // console.log(+true); // 1 i.e 0 + 1
 // console.log(true+); // error => bcz it expects a right operand => for addition
 
-// console.log(+""); // "" is 0
+// console.log(+""); // "" is 0 => o/p = 0
 
 
 let num1, num2, num3
