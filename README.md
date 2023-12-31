@@ -22,13 +22,13 @@ NOTES:
 
 **MATH**
 
--   Math.floor(3.95) // 3
-    Math.ceil(3.11) // 4
-    Math.PI.toFixed(2) // 3.14
-    Math.min(2,3,4,1,4,53,1) // 1, sim we have Math.max()
-    Math.abs(-2) // 2
-    Math.sqrt(25) // 5
-    Math.pow(2,4) // 16
+-   Math.floor(3.95) // 3 \
+    Math.ceil(3.11) // 4  \
+    Math.PI.toFixed(2) // 3.14 \
+    Math.min(2,3,4,1,4,53,1) // 1, sim we have Math.max() \
+    Math.abs(-2) // 2 \
+    Math.sqrt(25) // 5 \
+    Math.pow(2,4) // 16 \
     
 -   `const min = 10`
     `const max = 30`
