@@ -88,3 +88,16 @@ NOTES:
         - `const myArr2 = myArr.splice(1,3,"himadri", "das")` 
             - op: `myArr2 = [2,3,4]`
             - `myArr = [1,"himadri", "das", 5]` => even though we deleted 3 elem but we can add > 3 or < 3 elems into orgArr
+
+- **concat** and **spread** operator -> *both returns a new array*
+    - `const newArr = arr1.concat(arr2)`
+    - `const newArr = [...arr1, ...arr2]` -> spread every elem of the individual array and combine them.
+        - `const arr1 = [1,2,3,4]`, `const arr2 = [5,6,7,8]`
+        - `const arr3 = [...arr1, ...arr2]` -> [1,2,....,8]
+
+- *NOTE*: 
+    - multiple nesting in a single array && we want to combine them in a single array -> `const newArr = arr.flat(Infinity)` -> flat(depth of maximum nesting) to be safe keep it INF
+    - `Array.isArray(arr)` -> bool 
+    - `Array.from(arr)` -> arr will be converted to an array 
+        - *IMP*: `Array.from({name: "himadri"})` -> OP: [] bcz we haven't mentioned which one of key/value to be considered as array elem
+    - `Array.of(elem1, elem2, elem3)` -> [1,2,3]

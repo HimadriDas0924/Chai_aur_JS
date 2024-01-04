@@ -6,6 +6,7 @@ const arr = [1, 2 , 4, 5, 5, true, "himadri"]
 // console.log(typeof arr); // object => memory allocation in heap
 
 // copying an array into another => shallow copy => both objects/ arrays share the same references
+// deep copy => creating a new array at a different memory location
 
 // console.log(arr["1"]);  // o/p: 2
 // console.log(arr[1]); // op : 2 => bcz indices are converted to strings only
@@ -35,6 +36,7 @@ const myArr = new Array(1,2,3,4,5); // directly add inside bracket
 // console.log("A ", myArr);
 
 const myArr1 = myArr.slice(1,3) // (st,end) => copies the portion of the array from ind: st to end-1
+myArr[1] = "abc"
 
 console.log("B ", myArr1);
 console.log("A ", myArr); // original array => no change
