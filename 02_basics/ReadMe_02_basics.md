@@ -1,8 +1,8 @@
 # 2. Objects 
 
 - 2 methods to declare objects
-    - *Constructor* -> Object.create() -> singleton created
-    - *object literals* -> obj = {} -> no singleton created
+    - *Constructor* -> Object.create() -> singleton obj created
+    - *object literals* -> obj = {} -> non-singleton obj created
 
 - access property of object
     - Obj.key_name -> only mention name, no ""
@@ -18,3 +18,10 @@
 
 - freeze an object: so that further no changes could be made in it, trying to make won't give error though
     - `Object.freeze(my_obj)`
+
+- nested objects access -> `obj1.obj2.obj3.property1`
+- *IMP*-> `obj3 = {...obj1, ...obj2}` -> get all the {key,values} of obj1,obj2 in obj3
+- `Object.keys(obj1)` -> [containing all the keys of obj1]
+- `Object.values(obj1)`, `Object.entries(obj1)` -> [[k1,v1], [k2,v2], ..]
+- *IMP* -> `obj1.hasOwnProperty('isLoggedIn')` -> bool values return
+    - check if obj has a property before accessing it
