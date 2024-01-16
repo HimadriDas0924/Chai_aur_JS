@@ -1,0 +1,1 @@
+- **NOTE**: concept of scope is different in *browser* and in *node* environment
