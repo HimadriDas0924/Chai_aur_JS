@@ -38,10 +38,31 @@ const tinderUser = {
 }
 
 // VIMP: get all the keys Or all values of an Object
-console.log(Object.keys(tinderUser));
-console.log(Object.values(tinderUser));
+// console.log(Object.keys(tinderUser));
+// console.log(Object.values(tinderUser));
 
-console.log(Object.entries(tinderUser)); // [[k1, v1], [k2, v2], ..]
+// console.log(Object.entries(tinderUser)); // [[k1, v1], [k2, v2], ..]
 
 // IMP: before accessing property: check if obj has it or not
-console.log(tinderUser.hasOwnProperty('isLoggedIn')); // true
+// console.log(tinderUser.hasOwnProperty('isLoggedIn')); // true
+
+
+// DESTRUCTURING: {}
+    // useful for extracting values from an object
+    // 2 types: array Destructure && object destructure
+
+const course = {
+    courseName: "js in hindi",
+    coursePrice: "999",
+    courseInstructor: "hitesh"
+}
+
+// console.log(course.courseInstructor);
+
+const {courseInstructor: instructor} = course;
+// console.log(courseInstructor); // not defined: bcz now "instructor" holds it's value
+console.log(instructor);
+
+// What does an API return ?
+    // could return a JSON
+    // or could return an array of objects

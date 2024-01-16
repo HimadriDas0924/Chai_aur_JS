@@ -25,3 +25,11 @@
 - `Object.values(obj1)`, `Object.entries(obj1)` -> [[k1,v1], [k2,v2], ..]
 - *IMP* -> `obj1.hasOwnProperty('isLoggedIn')` -> bool values return
     - check if obj has a property before accessing it
+
+- 3. JSON, API, Destructuring:
+    - Destructuring -> 2 types : Object and Array Destructuring
+        - Object Des -> 
+            - `const obj = {name: "himadri", age: "23"}`
+            - `const {name} = obj` // so won't have to use obj.name 
+            - OR `const {name: objName} = obj` // can refer to it using objName
+    - API's return data in JSON i.e object: {"string" : "string"} OR array of objects i.e [{},{},{}]
