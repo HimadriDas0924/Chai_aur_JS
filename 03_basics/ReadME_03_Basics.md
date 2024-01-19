@@ -7,7 +7,7 @@
     - eg: `function addNums(num1, num2, ...num3) {}`, `addNums(100,200,300,400,500)` 
         - num1 = 100, num2 = 200, num3 = [300,400,500]
 
-- *Scope and Hoisting*
+- **Scope and Hoisting**
     - const, let -> block scope
     - var -> global scope i.e hoisted globally *in it's Execution context only*
         - **NOTE:** *var declared inside a function call, is not hoisted out to the parent's Execution context*
@@ -20,3 +20,17 @@
 
     - *Function declaration -> Hoisted*
     - *Function Expressions -> NOT hoisted* -> bcz it involves assignment of a fn to a variable, so assignment happens at that line only, till then variable = undefined
+
+- **This and Arrow Function**
+    - In objects, this refers to current context/object
+    - *In browser, this -> window object*
+    - *In node env, this -> {}*
+
+    - Inside Normal function: *this -> {object with a bunch of properties and fn}*
+        - `function fn() {const user = "himadri"} `
+            - inside fn: this.user = undefined 
+    - Arrow function: 
+        - `const addTwo = (num1, num2) => {return num1 + num2}`
+        - `const addTwo = (num1,num2) => (num1 + num2)`
+        - *in arrow fn: this -> {}*
+        - sim, this.user = undefined
