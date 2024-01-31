@@ -13,7 +13,7 @@ const coding = ["js", "ruby", "python", "cpp", "java"]
 //     console.log(item);
 // } )
 
-// notice that we just mentioned the cb fn: and it automatically called it by passing the elme, for every elem of the arr
+// notice that we just mentioned the cb fn: and it automatically called it by passing the elem, for every elem of the arr
 
 // coding.forEach((item) => {
 //     console.log(item);
