@@ -49,15 +49,15 @@ NOTES:
 
 - we can create Date Object of a particular Date and time
     - `let myCreatedDate = new Date(2023, 0, 23, 13, 23)` 
-        - (yr, month(0 based), yr, hr, min) 
+        - (yr, month(0 based), date, hr, min) 
         - we can even ommit the hr, min, sec
     
     - `let myCreatedDate = new Date("2023-01-23")`
 
 - Can Create timestamps => USE CASE : booking apps : person with lesser timestamp gets priority.
-    - `Date.now()` => returns a *number* i.e no of miliseconds from 1st Jan 1970 till now
+    - `Date.now()` => returns a *number* i.e *no of miliseconds* from 1st Jan 1970 till now
     - we can convert a Date Obj to timeStamps and then compare both
-        - `myDate.getTime()` => returns a *number*
+        - `myDate.getTime()` => returns a *number* i.e *no of ms* from 1st Jan 1970 till this date of date Object.
 
 - we can also fetch date, month, day, hours, seconds from date obj
     - `myDate.getDate()`, `myDate.getMonth()`, `myDate.getHours()`
@@ -70,7 +70,7 @@ NOTES:
     - `const arr = [1,2,3,"himadri", "das"]`
     - `const arr2 = new Array(1,2,3,"himadri","das")`
     - `arr[ind]`, `arr["1"]` and `arr[1]` both same bcz finally value in [] is converted to string only
-    - `arr.push(elem)`, `arr.pop()`, `arr.included(elem)` -> bool, `arr.indexOf(elem)` -> returns ind, else -1
+    - `arr.push(elem)`, `arr.pop()`, `arr.includes(elem)` -> bool, `arr.indexOf(elem)` -> returns ind, else -1
     - `arr.unshift(elem)` -> add elem at 0th pos
     - `arr.shift()` -> removes the 0th pos elem
     - `arr.join()` -> converts array to string -> every elem separated by ','
@@ -92,6 +92,7 @@ NOTES:
 - **concat** and **spread** operator -> *both returns a new array*
     - `const newArr = arr1.concat(arr2)`
     - `const newArr = [...arr1, ...arr2]` -> spread every elem of the individual array and combine them.
+        - `**NOTE** : sqaure bracket in spread operator`
         - `const arr1 = [1,2,3,4]`, `const arr2 = [5,6,7,8]`
         - `const arr3 = [...arr1, ...arr2]` -> [1,2,....,8]
 
