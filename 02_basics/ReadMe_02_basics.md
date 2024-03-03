@@ -2,6 +2,10 @@
 
 - 2 methods to declare objects
     - *Constructor* -> Object.create() -> singleton obj created
+        -> Steps: create a prototype object with some key-value pairs.
+        -> `let obj = Object.create(prototype_obj)`
+        -> `obj["new_property"] = "new_value"`
+
     - *object literals* -> obj = {} -> non-singleton obj created
 
 - access property of object
@@ -30,6 +34,6 @@
     - Destructuring -> 2 types : Object and Array Destructuring
         - Object Des -> 
             - `const obj = {name: "himadri", age: "23"}`
-            - `const {name} = obj` // so won't have to use obj.name 
+            - **NOTE:** `const {name} = obj` // so won't have to use obj.name 
             - OR `const {name: objName} = obj` // can refer to it using objName
     - API's return data in JSON i.e object: {"string" : "string"} OR array of objects i.e [{},{},{}]
