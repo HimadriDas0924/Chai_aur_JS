@@ -1,4 +1,4 @@
-- **NOTE**: concept of scope is different in *browser* and in *node* environment
+- **`NOTE`**: concept of scope is different in *browser* and in *node* environment
 
 - if we don't pass an argument value to a fn parameter -> by default it's undefined
 
@@ -17,14 +17,15 @@
         - *Once a function's EC is deleted > it's variables cannot be accessed.*    
 
     - During Code execution phase: if err encountered: rest of the code is not executed: bcz in JS: single threaded language.
+        - *till the point err is not encountered, prev part of code is executed. Once err, rest part of the code is not executed.*
 
     - *Function declaration -> Hoisted*
     - *Function Expressions -> NOT hoisted* -> bcz it involves assignment of a fn to a variable, so assignment happens at that line only, till then variable = undefined
 
 - **This and Arrow Function**
     - In objects, this refers to current context/object
-    - *In browser, this -> window object*
-    - *In node env, this -> {}*
+    - *`In browser, this -> window object`*
+    - *`In node env, this -> {} i.e empty object`*
 
     - Inside Normal function: *this -> {object with a bunch of properties and fn}*
         - `function fn() {const user = "himadri"} `

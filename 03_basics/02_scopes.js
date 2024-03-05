@@ -56,3 +56,13 @@ console.log(addTwo(5)); // error: bcz we're assigning function last, so yet in a
 const addTwo = function(num) {
     return num+2
 }
+
+// this in node env refers to context of the current module
+let user = "string in module context"
+
+function fn() {
+    let user = "string in function context"
+    console.log(this.user); // ans: undefined: even in node env ?? even though I've declared a variable user
+}
+
+fn()
