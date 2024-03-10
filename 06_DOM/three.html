@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: #121212; color: #fff;">
+
+</body>
+<script>
+    
+    // fn: to create an element by passing properties as fn argument
+    function addElement(bg, text) {
+
+        // S1) create element
+
+        const div = document.createElement('div') 
+        console.log(div);
+
+        // S2) add properties to the element
+
+        div.className = 'main'
+        div.id = Math.round(Math.random()*10 + 1) // random id
+        div.setAttribute('title', 'generated title') // attribute name: attribute
+        div.style.backgroundColor = bg
+        div.style.padding = "12px"
+
+        // m1
+
+        // div.innerText = "Himadri Das"
+
+        // m2: create a TextNode and append it to the element(since text inside a div acts like a child text node)
+
+        const addText = document.createTextNode(text)
+        div.appendChild(addText) // add text node inside the div
+
+
+        // S3) place this created element into the DOM
+        document.body.appendChild(div)
+
+
+    }
+
+
+    addElement("green", "text 1")
+    addElement("orange", "text 2")
+    addElement("brown", "text 3")
+    addElement("purple", "text 4")
+
+
+</script>
+</html>

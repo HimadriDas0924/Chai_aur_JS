@@ -29,7 +29,7 @@
 
     - `document.querySelector('input[type="password"]')` -> i.e we can apply rules of CSS selectors. Sim, `document.querySelector('p:first-child')`
 
-    - `const liList = document.querySelectorAll('li')`: always returns a NodeList of all the <li> elements. 
+    - `const liList = document.querySelectorAll('li')`: always returns a NodeList of all the `<li>` elements. 
 
     - NodeList and HTML Collections are a little different from Arrays But still have some similar properties.
         - eg: NodeList have .forEach() in its prototype but not map, push, pop, etc properties.

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: #212121; color: #fff;">
+
+    <!--task: add more li inside the ul-->
+    <ul class="languages">
+        <li>Javascript</li>
+    </ul>
+
+</body>
+<script>
+
+    function addLanguage(langName) {
+        // create
+        const li = document.createElement('li')
+        li.innerHTML = langName 
+
+        // add inside the parent
+        const ul = document.querySelector('.languages')
+        ul.appendChild(li) 
+    }
+
+    addLanguage("C++")
+    addLanguage("Python")
+    addLanguage("Java")
+
+    // avoid using innerHTML bcz it's not optimized (bcz we need to traverse the entire tree), rather prefer this method.
+
+    function addLangOptimized(langName) {
+        const li = document.createElement('li')
+        li.appendChild(document.createTextNode(langName)) // append a textNode
+        document.querySelector('.languages').appendChild(li)
+    }
+
+    addLangOptimized("golang")
+
+    // EDIT elements
+        // i.e remove the 2nd child and add a new child
+
+    const secondChild = document.querySelector("li:nth-child(2)") // selecting the 2nd child
+
+    // m1) secondChild.innerHTML = "Mojo" 
+
+    // m2)
+    const newli = document.createElement('li')
+    newli.textContent = "Mojo"
+
+    secondChild.replaceWith(newli) // replacing the 2nd child with a new element
+
+    // m3)
+    const firstChild = document.querySelector("li:first-child")
+    // console.log(firstChild);
+    firstChild.outerHTML = "<li>TypeScript</li>"
+
+
+    // REMOVE:
+
+    const lastChild = document.querySelector("li:last-child")
+    lastChild.remove()
+
+</script>
+</html>
