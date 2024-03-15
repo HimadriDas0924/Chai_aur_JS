@@ -10,6 +10,7 @@ let myDate = new Date() // object => time from 1st jan 1970 till now in ms
 // console.log(myDate.toISOString());
 // console.log(myDate.toJSON());
 // console.log(myDate.toLocaleDateString()); // o/p: date 
+console.log(myDate.toLocaleTimeString()) // time
 // console.log(myDate.toLocaleString()); // o/p: date + time
 
 
