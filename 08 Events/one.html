@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: #414141; color: aliceblue;">
+    <h2>Amazing image</h2>
+    <div >
+        <ul id="images">
+            <li><img width="200px" id="photoshop" src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="photoshop"></li>
+            <li><img width="200px" id="japan" src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="river" src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="owl" src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="" ></li>
+            <li><img width="200px" id="prayer" src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><a style="color: aliceblue;" href="https://google.com" id="google">Google</a></li>
+        </ul>
+
+        <div id="one" style = "height: 100px; width: 100px; background-color: red;">
+            <div id="two" style = "height: 100px; width: 100px; background-color: blue;position: absolute; left: 100px">
+                <div id="three" style = "height: 100px; width: 100px; background-color: pink; position: absolute; left: 200px"> 
+                    <div id = "four", style = "height: 100px; width: 100px; background-color: green; position: absolute; left: 300px">
+                    </div>
+                </div>
+            </div>
+        </div>
+   </div>
+</body>
+<script>
+    // Problem with below appraoch: it works but unlike "event listeners" it doesn't give many properties like "event propagation".
+
+        // document.getElementById('owl').onclick = function() {
+        //     alert('owl clicked!')
+        // }
+
+    // best approach:
+
+        // addEventListener(3 parameters -> event type, cb fn, false(by default))
+
+            // 3rd para: {false (by default): event bubbling: bottom -> top: i.e click on child: behavior of event listener on child -> then on parent -> it propagates upward},
+
+            // {true: event capturing: top -> Bottom: i.e click on child -> 1st operation of event listener on top most parent then it proceeds downwards}
+
+
+        // IMP things of Event Listener:
+
+            // type, timestamp, defaultPrevented
+            // target, toElement, srcElement, currentTarget,
+            // clientX, clientY, screenX, screenY
+            // altkey, ctrlkey, shiftkey, keyCode -> to know which key is pressed
+
+    
+    // document.getElementById('images').addEventListener('click', function(e) {
+    //     console.log('clicked inside the ul')
+    // }, false)
+
+    // document.getElementById('owl').addEventListener('click', function(e) {
+    //     // console.log(e)
+    //     console.log('clicked on owl')
+    //     e.stopPropagation(); // to stop event propagation 
+    // }, false)
+
+    // document.getElementById('google').addEventListener('click', function(e) {
+    //     console.log('google clicked');
+    //     e.preventDefault()
+    //     e.stopPropagation()
+    // }, false)
+
+    // // 3rd para: true, false, false, true && o/p: one, four, three, two
+
+    // // 3rd para: false, true, true, false && o/p: two, three, four, one
+
+    // // 3rd para: true, false, true, false && o/p: one, three, four, two
+
+    //     // observation: 1st whichever ones are supposed to do event capturing && then ones which are supposed to do event bubbling, both in their supposed order.
+
+    //     // NOTE: capturing(if it's supposed to): till the element you clicked onto: not further than that && bubbling(if it's supposed to) from that element you clicked onto, not below than that.
+
+    // document.getElementById('one').addEventListener('click', function(e) {
+    //     console.log('one clicked')
+    //     // e.stopPropagation() // to stop complete propagation: i.e no more capturing OR bubbling 
+    // }, true)
+    // document.getElementById('two').addEventListener('click', function(e) {
+    //     console.log('two clicked')
+    // }, false)
+    // document.getElementById('three').addEventListener('click', function(e) {
+    //     console.log('three clicked')
+    //     e.stopPropagation() 
+    // }, true)
+    // document.getElementById('four').addEventListener('click', function(e) {
+    //     console.log('four clicked')
+    // }, false)
+
+
+
+    // Make something: whichever element we clicked onto is removed from the DOM
+    
+    // 2 options: 
+        // 1) either add click event listener on each of the images OR
+
+        // 2) add event Listener on the parent and remove images only when we click on the <img> and not on the <li> (e.target OR e.srcElement will be the element on which we clicked && e.target.tagName == 'IMG') 
+
+    document.getElementById('images').addEventListener('click', function(e) {
+        
+        console.log(e.target.tagName)
+
+        if(e.target.tagName === 'IMG') {
+
+            // then only remove the parent of e.target
+            const removeIt = e.target.parentElement
+            removeIt.remove()
+            
+        }
+        
+    })
+
+</script>
+</html>
