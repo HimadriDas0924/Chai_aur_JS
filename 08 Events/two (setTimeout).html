@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Chair aur Code</h1>
+    <button id="stop">Stop</button>
+</body>
+<script>
+    // setTimeout(), clearTimeout()
+        // application: when you visit some websites, after the 1st few seconds, some popup appears.
+
+    const sayHello = function() {
+        console.log('Hello Himadri');
+    }
+
+    const changeName = function(str) {
+        document.querySelector('h1').innerHTML = str
+    }
+
+    // NOTE(here): setTimeout() function is already called, it's ref is just stored here.
+
+    // 3rd parameter, anything you want to pass to the cb fn of setTimeout.
+    const changeName_st_ref = setTimeout(changeName, 3000, 'Himadri das')
+
+    // Case: after a few seconds, you want task A to happen, but if user clicks on a switch before those few seconds, stop task A from happening.
+        // stop setTimeout i.e clearTimeout(ref of setTimeout)
+
+    document.querySelector('#stop').addEventListener('click', function(e) {
+        clearTimeout(changeName_st_ref)
+        console.log('changeName setTimout stopped');
+    })
+
+</script>
+</html>
