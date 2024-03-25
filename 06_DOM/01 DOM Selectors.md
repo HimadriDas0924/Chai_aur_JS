@@ -1,6 +1,6 @@
 1. *Document Object Model :* to help us structure parent child: for easier access of elements
     Window Object 
-        -> Document Objec
+        -> Document Object
             -> HTML
                 -> Head
                     -> title
