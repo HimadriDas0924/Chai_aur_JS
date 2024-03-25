@@ -261,3 +261,55 @@ function newGame() {
 }
 
 ```
+
+## Unlimited Colors
+
+- Start: start generating random colors. Stop: stop process
+
+``` javascript 
+
+// generate random color
+  // color: #010FFF i.e #(red)(green)(blue) each ranging from OO to FF i.e 16*16 numbers for each color.
+
+const randomColor = function() {
+  const hex = '0123456789ABCDEF'
+  // now choose random indices 6 times
+  let color = '#'
+
+  for(let i = 0; i < 6; i++) {
+    // choose random index from 0 to 15
+      // parseInt(Math.random()*10): generate random value from 0 to 10
+    const ind = Math.floor(Math.random()*15)
+    color += hex[ind]
+  }
+
+  return color;
+}
+
+
+const setBackgroundColor = function() {
+
+  // set the color of the background
+  document.querySelector('body').style.backgroundColor = randomColor();
+}
+
+let intervalId;
+
+const startChangingColor = function(e) {
+  // start changing color: if the prev startChangingColor has been stopped
+  if(!intervalId) {
+    intervalId = setInterval(setBackgroundColor, 1000)
+  }
+}
+
+const stopChangingColor = function(e) {
+  clearInterval(intervalId)
+
+  intervalId = null
+}
+
+document.querySelector('#start').addEventListener('click', startChangingColor)
+
+document.querySelector('#stop').addEventListener('click', stopChangingColor)
+
+```
