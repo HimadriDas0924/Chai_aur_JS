@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body{
+            margin: 10px;
+        }
+        #github-details-card{
+            width: 200px;
+        }
+        img{
+            width: 200px;
+            object-fit: contain;
+        }
+
+    </style>
+
+</head>
+<body style="background-color: #212121; color: #fff;">
+    <i>XMLHttpRequestObject.readyState</i> returns the state of the XMLHttpRequest client. Below are the States.
+    <br>
+    0	UNSENT	Client has been created. open() not called yet.
+    <br>
+    1	OPENED	open() has been called.
+    <br>
+    2	HEADERS_RECEIVED	send() has been called, and headers and status are available.
+    <br>
+    3	LOADING	Downloading; responseText holds partial data.
+    <br>
+    4	DONE	The operation is complete.
+    <br>
+    
+    <div id="github-details-card">
+
+    </div>
+    <button id="get-github-details">SUBMIT</button>
+
+</body>
+<script>
+
+    document.getElementById('get-github-details').addEventListener('click', function(e) {
+
+        const requestUrl = 'https://api.github.com/users/hiteshchoudhary';
+
+        const xhr = new XMLHttpRequest(); // new instance of the class
+
+        // whenever the state of the object will change: this cb will be called.
+        xhr.onreadystatechange = function() {
+            console.log(xhr.readyState)
+            if(xhr.readyState === 4) {
+                // i.e opern complete: data might've been received
+
+                // data is present in: xhr.responseText Or this.responseText
+
+                // console.log(xhr.responseText) 
+                // console.log(this.responseText)
+
+                // NOTE: whenever we receive data from an URL: most of the time it's a String: so convert it to JSON: JSON.parse(String)
+
+                const data = JSON.parse(this.responseText)
+                console.log(data);
+
+                const imageUrl = data.avatar_url;
+                const followers = data.followers;
+
+                // create a card and insert it in github-details-card
+                const githubDetailsCard = document.getElementById('github-details-card');
+
+                const img = document.createElement('img')
+                img.setAttribute('src', imageUrl)
+
+                githubDetailsCard.appendChild(img)
+
+                const p = document.createElement('p')
+                p.innerHTML = `Followers: ${followers}`
+
+                githubDetailsCard.appendChild(p)
+            }
+        }
+
+        xhr.open('GET', requestUrl) // open(method, url) is used to mention method,url.
+        xhr.send()
+
+    })
+
+   
+
+
+
+</script>
+</html>
