@@ -1,7 +1,42 @@
+0. **IMP** when is a promise is created, the cb associated with it is immediately executed. eg:
+``` javascript
+
+setTimeout(function() {
+    console.log('0')
+}, 1000)
+
+const promise = new Promise(function(resolve, reject) {
+    console.log('1')
+
+    setTimeout(function() {
+        console.log('2')
+        resolve() 
+        // NOTE: when this resolve() fn is called then only the cb present in promise.then(cb) is pushed into the microtask queue.
+    }, 1000)
+})
+
+promise.then(() => {
+    console.log('promise resolved')
+})
+.catch(() => {
+
+})
+
+console.log('end of the program')
+
+
+// output:
+// 1 -> end of the program -> (now micro task queue is empty and task queue is filled to 2 operations) -> 0 -> 2 -> promise resolved
+
+
+```
+
+
+
 1. Promise: ia an `object` representing the eventual completion (or failure) of an asynchronous operation and it's resulting value.
     - States of Promise: pending, resolved, completed
 
-2. Once Promise is resolved i.e asynchronous task is finished: then we can send some data to be handled in promise.then()
+2.  When the resolve() fn is called then only the cb present in promise.then(cb) is pushed into the microtask queue. we can also send some data to the call back function using resolve(data i.e object/array/string,etc..)
 
 ``` javascript
 
@@ -90,3 +125,12 @@ async function getAllUsers() {
 6. async await: is used to handle asynchronous operation OR we can use it for operations that take time.
 
 7. rejecting a promise with a message === throwing an error && != sending some data.
+
+8. 
+``` javascript
+
+// A fetch() promise only rejects when a network error is encountered (which is usually when there is a permission issue or similar). A fetch() promise doesn't reject on HTTP errors (404, etc). Instead a .then() handler must check the Response.ok and/or Response.status properties. 
+
+//   NOTE: i.e if Network request could be made then : then returned data (could also be a 404 error) is handled by .then() only. && if network request couldn't be made then error is handled by .catch();
+
+```

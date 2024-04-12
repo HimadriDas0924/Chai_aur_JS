@@ -12,7 +12,7 @@ const promiseOne = new Promise(function(resolve, reject) { // NOTE:(here) promis
 
         console.log("Async task complete")
 
-        resolve() // what does resolve() do: 'when current async task is complete' then cb of promise.then() is executed.
+        resolve()  // NOTE: when this resolve() fn is called then only the cb present in promise.then(cb) is pushed into the microtask queue.
 
     }, 1000)
 })
