@@ -70,3 +70,17 @@ so you don't need the window object for these things.
 ``` javascript 
     const obj2 = new obj1.constructor(); // we can use constructor function of other obj to create a new obj of the same type.
 ```
+
+### 5. Prototypes:
+
+- A prototype is an Object that an Object inherits from.
+
+- When you create a new object, it inherits from the Object prototype. The Object prototype is the base object for all objects in JavaScript.
+
+- so in objects,functions,arrays,strings,etc.. -> we properties/methods are not directly present in them, then they are searched up in the hierarchy.
+
+i.e functions,array,strings [their prototype: Object] && [prototype of Object: null]
+
+- `.prototype` is property of a class: so if we want all the Objects created to have some property then do: `Object.prototype.common_property = smt;`
+
+- `.__proto__ ` is property of a new object created, it is used when a specific object wants to inherit properties from another object: `obj1.__proto__ = obj2`
