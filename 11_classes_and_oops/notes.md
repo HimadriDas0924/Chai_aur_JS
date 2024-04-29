@@ -84,3 +84,102 @@ i.e functions,array,strings [their prototype: Object] && [prototype of Object: n
 - `.prototype` is property of a class: so if we want all the Objects created to have some property then do: `Object.prototype.common_property = smt;`
 
 - `.__proto__ ` is property of a new object created, it is used when a specific object wants to inherit properties from another object: `obj1.__proto__ = obj2`
+
+
+
+### 6. Classes and Inheritance
+
+``` javascript
+class User {
+    // as soon as you create a new obj: using the "new" keyword, constructor fn is called
+    constructor(username, email, password) {
+        this.username = username
+        this.email = email
+        this.password = password
+    }
+
+    // we don't write the 'function' keyword to define a fn
+    encryptPassword() {
+        return `${this.password}abc`
+    }
+
+    changeUsername(){
+        return this.username.toUpperCase()
+    }
+}
+
+// behind the scenes:
+/*
+function User(username, email, password) {
+    this.username = username
+    this.email = email
+    this.password = password   
+}
+
+User.prototype.encryptPassword = function() {
+    return `${this.password}abc`
+}
+User.prototype.changeUsername = function() {
+    return this.username.toUpperCase()
+}
+*/
+
+const chai = new User("chai", "chai@gmail.com", "123")
+
+console.log(chai.encryptPassword());
+console.log(chai.changeUsername());
+
+```
+
+``` javascript
+// inheritance in classes
+
+
+class User {
+    constructor(username) {
+        this.username = username
+    }
+
+    logMe() {
+        console.log(`USERNAME is ${this.username}`);
+    }
+}
+
+// inheritance
+class Teacher extends User {
+
+    constructor(username, email, password){
+        /* 1. super: used to invoke a superclass's constructor.
+        
+        2. It is either used as a function call or a property lookup.
+
+        3. super() must be called before the 'this' keyword of derived class is used and before the constructor returns. 
+
+        4. super() in a derived class: calls the parent class's constructor and binds the parent class's public field on the derived class object(i.e super had access to derived class's 'this'). 
+            After that derived class constructor can further access and modify 'this'.
+        
+        5. in a derived class: super must be called before you use 'this', else you get "ReferenceError".    */
+
+        super(username) // behind the scene: UserConstructorFunction.call(this, username)
+        this.email = email
+        this.password = password
+    }
+
+    addCourse() {
+        console.log(`A new course was added by ${this.username}`);
+    }
+}
+```
+
+``` javascript 
+// some important methods:
+
+1. instanceof
+
+chai instanceof Teacher // to check if chai is an object of Teacher class or not: returns a bool 
+
+2. Object.setPrototypeOf
+
+Object.setPrototypeOf(abc, def) // abc inherited the prototype of def, thus inherited all the functions Or variables in it's prototype i.e prototyple inheritance.
+
+```

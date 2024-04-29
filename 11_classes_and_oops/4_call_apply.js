@@ -7,7 +7,7 @@ ans) suppose obj1 has a fn definition and obj2 doesn't. We can do obj1.fn_call()
 so can we use the fn defn of fn_call, present inside obj1 and somehow make this refers to obj2 and not obj1.
 
 
-syntax1) obj1.fn_call.call(obj2) i.e function borrowing Or for this substitution.
+syntax1) obj1.fn_call.call(obj2) i.e function borrowing Or for 'this' substitution.
 
 syntax2) obj1.fn_call.call(obj2, fn_call parameters)
 
