@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: #121212;">
+    <button id="orange">Orange</button>
+    <button id="green">Green</button>
+</body>
+<script>
+    /*
+        1. Lexical Scoping: inner function is defined inside outer function, then inner fn will have access to the variables of the outer fn.
+        But sibling inner fns don't have access to each other's variables.
+
+        2. A closure is the combination of a function bundled together (enclosed) with references to its surrounding state (the lexical environment). In other words, a closure gives you access to an outer function's scope from an inner function.
+        
+        In JavaScript, closures are created every time a function is created, at function creation time.
+    */
+
+    // lexical scoping
+    /*
+    function init() {
+        let name = "Mozilla"
+
+        function displayName() {
+            console.log(name);
+        }
+
+        displayName()
+    }
+
+    init();
+    */
+
+    // closure
+
+    // function makeFunc() {
+    //     const name = "Mozilla";
+
+    //     function displayName() {
+    //         console.log(name);
+    //     }
+
+    //     return displayName; // whole lexical scope of diplayName is returned.
+    // }
+
+    // const myFunc = makeFunc();
+    // myFunc();
+
+
+    // Real world usecase of Closure:
+
+    // document.getElementById('green').onclick = function() {
+    //     document.body.style.backgroundColor = 'green'
+    // }
+    
+    // document.getElementById('orange').onclick = function() {
+    //     document.body.style.backgroundColor = 'orange'
+    // }
+
+    // similary if we had to do the same thing over 100 buttons: so we'd rather make a common function and pass the background color we need to change to.
+
+    // function clickHandler(color) {
+    //     document.body.style.backgroundColor = `${color}`
+    // }
+
+
+    function clickHandler(color) {
+
+        // returning the lexical scope of the inner fn: which has access to variables of the outer fn.
+        return function() {
+            document.body.style.backgroundColor = `${color}`
+        }
+    }
+
+    document.getElementById('green').onclick = clickHandler('green') // we need to pass the color: but then it'll not be a fn reference, rather function will be called
+    // so how do we pass the reference of the function but also make use of the value we need in the function: closure i.e pass value to the outer fn and get the lexical scoping of the inner fn.
+    document.getElementById('orange').onclick = clickHandler('orange')
+
+
+
+</script>
+</html>
