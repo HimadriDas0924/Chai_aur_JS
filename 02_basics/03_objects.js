@@ -1,6 +1,6 @@
-// When declaring objects using constructor -> singleton is created
+// When declaring objects using constructor -> singleton object is created
     // eg: Object.create()
-// when declaring objects using literals -> singletong created
+// when declaring objects using literals -> non - singleton object created
     // eg: obj = {}
 
 const mySym = Symbol("key1")
