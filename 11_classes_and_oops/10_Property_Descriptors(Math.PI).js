@@ -34,7 +34,8 @@ console.log(Object.getOwnPropertyDescriptor(chai, "name"));
 
 Object.defineProperty(chai, "name", {
     writable: false,
-    enumerable: false // enumerable means iterable
+    enumerable: false, // enumerable means iterable
+    configurable: false // configurable means: property can be deleted and attributes can be modified
 })// obj, property, {changes}
 
 console.log(Object.getOwnPropertyDescriptor(chai, "name"));
