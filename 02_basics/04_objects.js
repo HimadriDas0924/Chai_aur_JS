@@ -1,4 +1,4 @@
-const user = new Object() // singleton object
+// const user = new Object() // singleton object: Doubt ?? singleton objects are ones who follow singleton pattern. So does this obj follow it?
 // console.log(user);
 
 // nested object
